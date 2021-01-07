@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,32 +12,37 @@ namespace HomeworkThreeAtos
         static void Main(string[] args)
         {
             Write("Choose type of regime (Interactive or Batch): ");
-            string regime = ReadLine();   // 
+            string regime = ReadLine();   // ????
             
-            if (args.Length != 0)
-            {
-                for (int i = 0; i < args.Length; i++)
-                {
-                    WriteLine(args[i]);
-                }                
-            }
             if (args[0] == "-batch")
             {
+                if (args.Length != 0)
+                {
+                    for (int i = 0; i < args.Length; i++)
+                    {
+                        WriteLine(args[i]);
+                    }
+                }
+                Write("Enter first number: ");
+                int num1 = Convert.ToInt32(ReadLine());
+                Write("Enter second number: ");
+                int num2 = Convert.ToInt32(ReadLine());
                 switch (args[1])
                 {
                     case "-add":
-                        Write("Enter first num: ");
-                        int num = Convert.ToInt32(ReadLine());
                         WriteLine($"Sum equals = {Convert.ToInt32(args[2].Substring(1)) + Convert.ToInt32(args[3].Substring(1)) + Convert.ToInt32(args[4].Substring(1))}");
                         break;
-                        case "-"
-                        //to-do
+                    case "-subtract":
+                        
                     default:
                         break;
                 }
             }
-
-            MenuFunction();
+            else if(regime == "Interactive")
+            {
+                MenuFunction();
+            }
+           
 
         }
         public static int ValidatingSizeInput()
@@ -137,7 +142,7 @@ namespace HomeworkThreeAtos
                             WriteLine($"Geometric mean: {geoMean} \n");
                             break;
                         case EnumMenuFunction.Transpose:
-
+                            // TO-DO
                         default:
                             break;
                     }
@@ -151,7 +156,7 @@ namespace HomeworkThreeAtos
             }
             else
             {
-                WriteLine("Don't you know you know how to read?");
+                WriteLine("Nah, try again");
             }
         }
     }
